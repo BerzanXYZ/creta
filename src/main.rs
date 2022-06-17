@@ -8,10 +8,12 @@ fn main() {
         Some(wd) => wd,
         None => {println!("❌ An error occured while reading work directory..."); return;},
     }; 
+
+    let project_name = String::from("project");
     
     println!();
     println!("🌊 Creta, app builder");
-    println!("Work Directory is {}", work_dir);
+    println!("Project Directory is {}", utils::build_pro_dir(&work_dir, &project_name));
     println!("{}", static_files::PACKAGE_JSON);
     println!("{}", static_files::TSCONFIG_JSON);
     println!("{}", static_files::_GITIGNORE);
