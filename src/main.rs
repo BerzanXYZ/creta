@@ -14,4 +14,5 @@ fn main() {
     println!("Work Directory is {}", work_dir);
     println!("{}", static_files::PACKAGE_JSON);
     println!("{}", static_files::TSCONFIG_JSON);
+    println!("{}", static_files::_GITIGNORE);
 }
