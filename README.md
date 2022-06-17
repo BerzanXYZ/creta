@@ -1,5 +1,5 @@
-# Creta
-🌊 Create a TypeScript app in under a second
+# 🌊 Creta
+Create a TypeScript app in under a second
 
 - Creta builds a simple TypeScript app template 
 - You can use it to start writing code without waiting
