@@ -1,17 +1,15 @@
 pub const PACKAGE_JSON: &str = 
 r#"{
-    "name": "PROJECTNAME",
-    "version": "0.0.0",
-    "description": "DESCRIPTION",
-    "main": "src/index.ts",
-    "repository": "YOUR_GIT_REPO_URL",
-    "author": "YOUR_NAME",
+    "name": "PROJECT_NAME",
+    "version": "0.0.1",
+    "description": "This project srcis created by Creta",
+    "main": "bin/index.js",
+    "repository": "https://example.com/example/example.git",
+    "author": "example",
     "license": "MIT",
     "scripts": {
-        "build": "yarn tsc",
-        "start": "node bin/index.js"
-    }
-    ],
+        "start": "yarn tsc && node bin/index.js"
+    },
     "devDependencies": {
         "typescript": "^4.7.3"
     }
