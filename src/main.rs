@@ -3,7 +3,7 @@ mod static_files;
 
 fn main() {
     // Declare project_name variable
-    let mut project_name = String::new();
+    let project_name;
 
     // Check if enough args are given
     // If not stop the app
