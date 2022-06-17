@@ -10,9 +10,10 @@ fn main() {
     }; 
     
     println!();
-    println!("🌊 Creta, build TypeScript apps...");
+    println!("🌊 Creta, app builder");
     println!("Work Directory is {}", work_dir);
     println!("{}", static_files::PACKAGE_JSON);
     println!("{}", static_files::TSCONFIG_JSON);
     println!("{}", static_files::_GITIGNORE);
+    println!("{}", static_files::SRC__INDEX_TS);
 }
