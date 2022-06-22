@@ -1,3 +1,5 @@
+// tsconfig.json file is for configuring TypeScript compiler
+
 pub const TSCONFIG_JSON: &str =
 r#"{
     "compilerOptions": {

@@ -1,3 +1,5 @@
+// index.ts file is the main file in a project
+
 pub const SRC_INDEX_TS: &str =
 r#"// Built by 🌊 Creta 
 

@@ -1,3 +1,6 @@
+// package.json file describes the project
+// with its information and dependencies
+
 pub const PACKAGE_JSON: &str = 
 r#"{
     "name": "PROJECT_NAME",
