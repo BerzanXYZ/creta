@@ -30,7 +30,7 @@ fn main() {
     };
 
     // Define project_directory
-    let project_dir = utils::build_pro_dir(&work_dir, &project_name);
+    let project_dir = format!("{}/{}/",work_dir, project_name);
 
     
     println!();
@@ -38,25 +38,25 @@ fn main() {
 
     // Create the main folder and src folder
     // If an error occurs stop the app
-    match std::fs::create_dir_all(format!("{}/src", project_dir)) {
+    match std::fs::create_dir_all(format!("{}src", project_dir)) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
     
     // Create and write the files
-    match std::fs::write(format!("{}/package.json", project_dir), static_files::PACKAGE_JSON.replace("PROJECT_NAME", &project_name)) {
+    match std::fs::write(format!("{}package.json", project_dir), static_files::PACKAGE_JSON.replace("PROJECT_NAME", &project_name)) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
-    match std::fs::write(format!("{}/tsconfig.json", project_dir), static_files::TSCONFIG_JSON) {
+    match std::fs::write(format!("{}tsconfig.json", project_dir), static_files::TSCONFIG_JSON) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
-    match std::fs::write(format!("{}/.gitignore", project_dir), static_files::_GITIGNORE) {
+    match std::fs::write(format!("{}.gitignore", project_dir), static_files::_GITIGNORE) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
-    match std::fs::write(format!("{}/src/index.ts", project_dir), static_files::SRC_INDEX_TS) {
+    match std::fs::write(format!("{}src/index.ts", project_dir), static_files::SRC_INDEX_TS) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
