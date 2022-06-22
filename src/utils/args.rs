@@ -4,6 +4,17 @@ pub struct Args {
 }
 
 impl Args {
+    // Creates an Args object which holds environment args
+    pub fn new() -> Args {
+        // Declare temporary env_args vector
+        let mut env_args = Vec::new();
+        // Push env args into env_args vector
+        for arg in std::env::args() {
+            env_args.push(arg)
+        }
+        // Return object
+        Args { args: env_args }
+    }
     // Function that returns the count of args
     pub fn len(&self) -> usize {
         self.args.len()

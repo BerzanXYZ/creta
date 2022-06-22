@@ -6,3 +6,13 @@ pub fn get_work_dir() -> Option<String> {
         Err(_) => None,
     }
 }
+
+pub fn get_work_folder() -> Option<String> {
+    match get_work_dir() {
+        Some(wd) => match wd.split("/").last() {
+            Some(dir) => Some(dir.to_string()),
+            None => None
+        },
+        None => None,
+    }
+}

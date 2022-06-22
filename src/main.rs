@@ -3,22 +3,36 @@ mod static_files;
 
 fn main() {
     // Declare project_name variable
-    let project_name;
+    let mut project_name = String::new();
 
-    // Check if enough args are given
-    // If not stop the app
-    if std::env::args().count() == 2 {
-        project_name = match std::env::args().nth(1) {
-            // Convert the project name to lowercase to respect NPM naming rules
-            Some(pn) => pn.to_lowercase(),
-            None => {println!("🌊 An error occured while setting project name..."); return;},
+    println!("🌊 Creta project builder");
+
+    let args = utils::Args::new();
+    if args.len() < 2 {
+        println!("What is the name of your project: ");
+        if let Err(_) = std::io::stdin().read_line(&mut project_name) {
+            println!("Cannot read your input.");
+            return;
         }
     } else {
-        // If the user didn't set a project name
-        // Tell user what to do, then stop the app
-        println!("🌊 Try to run Creta by using the command below:");
-        println!("creta my-project");
-        return;
+        project_name = match args.get(1) {
+            Some(s) => match s {
+                    "init" => match utils::get_work_folder() {
+                        Some(d) => d,
+                        None => {
+                            println!("");
+                            return ;
+                        } 
+                    },
+                    _ => {
+                        s.to_string()
+                    }
+            },
+            None => {
+                println!("Cannot build your project");
+                return ;
+            },
+        }
     }
 
 
@@ -32,9 +46,6 @@ fn main() {
     // Define project_directory
     let project_dir = format!("{}/{}/",work_dir, project_name);
 
-    
-    println!();
-    println!("🌊 Creta builds your app...");
 
     // Create the main folder and src folder
     // If an error occurs stop the app
