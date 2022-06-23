@@ -1,29 +1,21 @@
 # 🌊 Creta
-Create a TypeScript app in under a second
+- Create a TypeScript app in under a second
 
-- Creta builds a simple TypeScript app template 
-- You can use it to start writing code without waiting
+- Creta builds a simple TypeScript app in under a second
 
-> Written in Rust to be blazingly fast
+- Written in Rust to be blazingly fast
 
-
-### Usage
+### Example
 
 To create a new app:
 ```bash
 creta my-app
-cd my-app
 ```
-All done!
 
-<br/>
-
-You can also use `init` command to use current folder as the base folder for your app
+To initalize current folder as an app
 ```bash
 creta init
 ```
-
-<br/>
 
 To install dependencies and run your app:
 ```bash
@@ -31,5 +23,14 @@ yarn
 yarn start
 ```
 
+<br/>
 
+### Building from source
+
+```bash
+gh repo clone BerzanXYZ/creta
+cd creta
+cargo build --release
+cargo install --path .
+```
 
