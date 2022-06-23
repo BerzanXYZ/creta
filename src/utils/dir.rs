@@ -17,7 +17,7 @@ pub fn get_work_folder() -> Option<String> {
     }
 }
 
-pub fn build_path(cmd: &str) -> String {
+pub fn build_path(pro_name: &str, cmd: &str) -> String {
     let cur_dir = match get_work_dir() {
         Some(cd) => cd,
         None => panic!(),
@@ -25,6 +25,6 @@ pub fn build_path(cmd: &str) -> String {
     if cmd == "init" {
         format!("{}/", cur_dir)
     } else {
-        format!("{}/{}/", cur_dir, cmd)
+        format!("{}/{}/", cur_dir, pro_name)
     }
 }

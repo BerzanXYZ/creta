@@ -4,6 +4,7 @@ mod static_files;
 fn main() {
     // Declare project_name variable
     let mut project_name = String::new();
+    let mut command = String::new();
 
     println!("🌊 Creta project builder");
 
@@ -22,26 +23,27 @@ fn main() {
             }
         }
     } else {
-        // If project name is given
-        project_name = match args.get(1) {
+        // If a command name is given, do these
+        command = match args.get(1) {
             // If command is init, set project name as current folder's name
-            Some("init") => match utils::get_work_folder() {
-                Some(s) => s,
-                None => {
-                    println!("Cannot build your project!");
-                    return ;
-                }
+            Some("init") => {
+                project_name = utils::get_work_folder().unwrap();
+                "init".to_string()
             },
-            Some(p_name) => p_name.to_string(),
+            Some(p_name) => {
+                project_name = p_name.to_string();
+                "".to_string()
+            },
             None => {
                 println!("Cannot build your project!");
                 return
             }
         };
     }
+    
 
     // Define project_directory
-    let path_to_project = utils::build_path(&project_name);
+    let path_to_project = utils::build_path(&project_name, &command);
 
     // Create the main folder and src folder
     // If an error occurs stop the app
@@ -68,17 +70,13 @@ fn main() {
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
 
-    // Print success message
-    println!();
-    println!("All done!");
-    println!();
-    println!("To prepare your app, run the commands below:");
-    println!("  cd {}", project_name);
-    println!("  yarn install");
     println!();
     println!("To start your app, run the commands below:");
-    println!("  yarn start");
+    if command != "init" {
+        println!("  cd {}", command);
+    }
+    println!("   yarn");
+    println!("   yarn start");
     println!();
-    println!("🌊 By Creta");
 
 }
