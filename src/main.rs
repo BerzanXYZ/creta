@@ -6,7 +6,7 @@ fn main() {
     let mut project_name = String::new();
     let mut command = String::new();
 
-    println!("🌊 Creta project builder");
+    println!("🌊 Creta app builder");
 
     let args = utils::Args::new();
     if args.len() < 2 {
@@ -71,9 +71,9 @@ fn main() {
     }
 
     println!();
-    println!("To start your app, run the commands below:");
+    println!("To start your app:");
     if command != "init" {
-        println!("  cd {}", command);
+        println!("  cd {}", project_name);
     }
     println!("   yarn");
     println!("   yarn start");
