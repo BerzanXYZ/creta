@@ -4,14 +4,12 @@ mod static_files;
 fn main() {
     // Declare project_name variable
     let mut project_name = String::new();
-    let mut project_folder = String::new();
-
 
     println!("🌊 Creta project builder");
 
     let args = utils::Args::new();
     if args.len() < 2 {
-        while project_name.len() < 2 {
+        while project_name.len() < 1 {
             println!("What is the name of your project: ");
             if let Err(_) = std::io::stdin().read_line(&mut project_name) {
                 println!("Cannot read your input");
@@ -23,47 +21,27 @@ fn main() {
                 println!();
             }
         }
-        // Set project folder
-        project_folder = format!("/{}", project_name)
     } else {
-        // Parse command
-        let command = match args.get(1) {
-            Some("init") => "init",
-            Some(p_name) => p_name,
+        // If project name is given
+        project_name = match args.get(1) {
+            // If command is init, set project name as current folder's name
+            Some("init") => match utils::get_work_folder() {
+                Some(s) => s,
+                None => {
+                    println!("Cannot build your project!");
+                    return ;
+                }
+            },
+            Some(p_name) => p_name.to_string(),
             None => {
-                println!("Cannot build you project!");
+                println!("Cannot build your project!");
                 return
             }
         };
-        // If command is init
-        if command == "init" {
-            project_name = match utils::get_work_folder() {
-                Some(d) => d,
-                None => {
-                    println!("Cannot build your project!");
-                    return
-                }
-            }
-            // Leave project folder empty to use current work folder
-        } else {
-            // If the command isn't init, command is the name of the project
-            project_name = command.to_string();
-            project_folder = format!("/{}", project_name);
-        }
-
     }
 
-
-    // Get and assign work directory
-    // If an error occurs, stop the app
-    let work_dir = match utils::get_work_dir() {
-        Some(wd) => wd,
-        None => {println!("🌊 An error occured while reading work directory..."); return;},
-    };
-
     // Define project_directory
-    let path_to_project = format!("{}{}/",work_dir, project_folder);
-
+    let path_to_project = utils::build_path(&project_name);
 
     // Create the main folder and src folder
     // If an error occurs stop the app

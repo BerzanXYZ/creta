@@ -16,3 +16,15 @@ pub fn get_work_folder() -> Option<String> {
         None => None,
     }
 }
+
+pub fn build_path(cmd: &str) -> String {
+    let cur_dir = match get_work_dir() {
+        Some(cd) => cd,
+        None => panic!(),
+    };
+    if cmd == "init" {
+        format!("{}/", cur_dir)
+    } else {
+        format!("{}/{}/", cur_dir, cmd)
+    }
+}
