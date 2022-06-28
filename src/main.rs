@@ -82,9 +82,16 @@ fn main() {
     println!();
 
     // Install node_modules by using this command
-    if let Err(_) = std::process::Command::new("yarn").current_dir(&project_name).output() {
-        println!("Yarn isn't installed...");
+    if command == "init" {
+        if let Err(_) = std::process::Command::new("yarn").output() {
+            println!("Yarn isn't installed...");
+        }
+    } else {
+        if let Err(_) = std::process::Command::new("yarn").current_dir(&project_name).output() {
+            println!("Yarn isn't installed...");
+        }
     }
+
 
     println!("To start your app:");
     // If current directory is in the project's base folder
