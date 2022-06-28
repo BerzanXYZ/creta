@@ -1,8 +1,4 @@
-// package.json file describes the project
-// with its information and dependencies
-
-pub const PACKAGE_JSON: &str = 
-r#"{
+{
     "name": "PROJECT_NAME",
     "version": "0.0.1",
     "description": "This project srcis created by Creta",
@@ -17,4 +13,3 @@ r#"{
         "typescript": "^4.7.3"
     }
 }
-"#;

@@ -66,7 +66,7 @@ fn main() {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
-    match std::fs::write(format!("{}.gitignore", path_to_project), static_files::_GITIGNORE) {
+    match std::fs::write(format!("{}.gitignore", path_to_project), static_files::GITIGNORE) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }

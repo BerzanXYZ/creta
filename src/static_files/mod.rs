@@ -1,9 +1,6 @@
-mod package_json;
-mod tsconfig_json;
-mod _gitignore;
-mod src_index_ts;
+// Those below are the embedded files
 
-pub use package_json::PACKAGE_JSON;
-pub use tsconfig_json::TSCONFIG_JSON;
-pub use _gitignore::_GITIGNORE;
-pub use src_index_ts::SRC_INDEX_TS;
+pub const PACKAGE_JSON: &str = include_str!("package.json");
+pub const GITIGNORE: &str = include_str!(".gitignore");
+pub const TSCONFIG_JSON: &str = include_str!("tsconfig.json");
+pub const SRC_INDEX_TS: &str = include_str!("src/index.ts");

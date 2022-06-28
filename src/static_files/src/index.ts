@@ -1,7 +1,4 @@
-// index.ts file is the main file in a project
-
-pub const SRC_INDEX_TS: &str =
-r#"// Built by 🌊 Creta 
+// Built by 🌊 Creta 
 
 // You have to run the command below to start the app:
 // `yarn start`
@@ -10,4 +7,3 @@ r#"// Built by 🌊 Creta
 
 let message: string = "Hello by Creta!"
 console.log(message)
-"#;
