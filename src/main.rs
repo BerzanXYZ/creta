@@ -99,7 +99,6 @@ fn main() {
     if command != "init" {
         println!("   cd {}", project_name);
     }
-    println!("   yarn");
     println!("   yarn start");
     println!();
 
