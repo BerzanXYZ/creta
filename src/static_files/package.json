@@ -1,5 +1,5 @@
 {
-    "name": "PROJECT_NAME",
+    "name": "project_name",
     "version": "0.0.1",
     "description": "This project srcis created by Creta",
     "main": "bin/index.js",

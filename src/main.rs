@@ -58,7 +58,7 @@ fn main() {
     }
     
     // Create and write the files
-    match std::fs::write(format!("{}package.json", path_to_project), static_files::PACKAGE_JSON.replace("PROJECT_NAME", &project_name)) {
+    match std::fs::write(format!("{}package.json", path_to_project), static_files::PACKAGE_JSON.replace("project_name", &project_name)) {
         Ok(_) => (),
         Err(_) => {println!("🌊 An error occured while creating the app..."); return;},
     }
